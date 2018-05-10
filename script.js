@@ -3,8 +3,10 @@
 $(document).ready(function(){ 
 
 
+
+
 const startGame = () => {
-  $("#popup").append(`<p>You ARE patient zero.</p>`)
+
   console.log("game started");
 
   function countdown() {
@@ -16,7 +18,8 @@ const startGame = () => {
       timerEl = document.getElementById('timer');
       timerEl.innerHTML = "Oh no!";
       console.log("fail");
-      $("#popup").append(`<p>You could not save the world.</p>`)
+      $("#popup").html(`<p>You could not save the world.</p>`)
+      .show();
       return;
     }
   // targeting timer div, seconds decrement
@@ -62,14 +65,11 @@ const startGame = () => {
     }
   });
 
-}
+} // end of start game
 
 
 
- // reset button
-$(document.body).on("click", "#reset-button", function(event) {
-  startGame();
-});
+
 
 // Round 1 countdown
 
@@ -78,7 +78,27 @@ let timerEl;
 let timeout;
  
 
-  startGame();
+////////////////////START OF BRAND NEW GAME
+const brandNewGame = () => {
+
+  $("#popup").html(`<p>You ARE patient zero.</p><button type="button" id="start-button">Plague</button>`)
+$(document.body).on("click", "#start-button", function(event) 
+{
+  $("#popup").hide();
+  startGame()
+}); 
+   // reset button
+   $(document.body).on("click", "#reset-button", function(event) {
+    brandNewGame();
+  });
+
+}
+
+
+
+brandNewGame();
+
+  // startGame();
 
 
 });

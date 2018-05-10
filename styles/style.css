@@ -99,7 +99,7 @@ li {
   transform: rotateX(180deg);
 }
 
-.card:hover .disease-one, .card.flip .disease-one {
+.card:hover .disease-one, .card.flip {
   transform: rotateX(0deg);
   background-image: url(diseases/BubonicPlague_edit.jpg);
   background-position: center;
@@ -125,9 +125,9 @@ li {
   background-position-y: center;
 }
 
-/* .disease-one {
+.disease-one {
   background-image: url(diseases/BubonicPlague_edit.jpg);
-} */
+}
 
 .disease-two {
   background-image: url(diseases/ebola_edit.jpg);

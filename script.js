@@ -25,8 +25,24 @@ $(document).ready(function(){
    $(event.target)
     .toggleClass("face-down")
     .toggleClass("show")
-    // .css("background-image", "url(https://slack-imgs.com/?c=1&url=http%3A%2F%2Fgjsmsvirtualzoo.pbworks.com%2Ff%2F1417702731%2Fkoala%2520%2520bear.jpg)");
  })
+
+ $(document.body).on("click", "#reset-button", function(event) {
+  startGame();
+})
+
+const startGame = () => {
+  const shuffle = () => {
+    console.log("hi");
+    let list = $('ul');
+    let count = $('ul li').length;
+  for (let i = 1; i < count; i++) {
+    let j = Math.floor(Math.random() * count);
+    $('li', list).eq(j).appendTo(list);
+} console.log(list);
+  }
+  shuffle();
+}
 
 
 //  for (let i = 0; i < cards.length; i++) {

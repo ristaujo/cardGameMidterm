@@ -15,17 +15,9 @@
     </header>
     <!-- <div class="flip-container" ontouchstart="this.classList(''"")></div> -->
     <main>
-      <ul>
-          <li id="card1" class="card">
-            <div class="face-down"></div>
-            <div class="disease-one"></div>
-          </li>
-
-          <li id="card2" class="card">
-            <div class="face-down"></div>
-            <div class="disease-one"></div>
-          </li>
-          
+      <ul class="disease-deck" id="card-deck">
+          <li id="card1" class="card face-down disease-one"></li>
+          <li id="card2" class="card face-down disease-one"></li>
           <li id="card3" class="card face-down disease-two"></li>
           <li id="card4" class="card face-down disease-two"></li>
           <li id="card5" class="card face-down disease-three"></li>
@@ -51,10 +43,11 @@
     <footer>
       <div id="lives">Lives</div>
       <div id="timer">timer</div>
-      <div id="reset-button"></div>
+      <button type="button" id="reset-button"></button>
     </footer>
     
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -2,34 +2,32 @@
 
 $(document).ready(function(){ 
 
-//cards class="disease (differentiated)", class for face down, overall id for card, 
-
-
-//WHEN WINDOW LOADS, GAME STARTS
-// window.onload = startGame();
-
-//ALL CARDS ARE STORED IN AN ARRAY
-// let card = document.getElementsByClassName("card");
-// let cards = [...card];
-
-// ON CLICKING A CARD IT WILL LOOP THROUGH ARRAY OF CARDS
-// FUNCTIONS THAT FLIP CARDS
-// let displayCard = function (){
-//   this.classList.toggle("face-down");
-//   this.classList.toggle("show");
-//   this.classList.toggle("disable");
-// }
-
-//  $(document.body).on("click", "li.card", function(event) {
-//    console.log(event.target);
-//    $(event.target)
-//     .toggleClass("face-down")
-//  })
-
-// Shuffles cards
 
 const startGame = () => {
+  $("#popup").append(`<p>You ARE patient zero.</p>`)
   console.log("game started");
+
+  function countdown() {
+    seconds = document.getElementById('timer').innerHTML;
+    seconds = parseInt(seconds, 10);
+ 
+  // If seconds equal 1, display sad message  
+    if (seconds == 1) {
+      timerEl = document.getElementById('timer');
+      timerEl.innerHTML = "Oh no!";
+      console.log("fail");
+      $("#popup").append(`<p>You could not save the world.</p>`)
+      return;
+    }
+  // targeting timer div, seconds decrement
+    seconds--;
+    timerEl = document.getElementById('timer');
+    timerEl.innerHTML = seconds;
+    timeout = setTimeout(countdown, 1000);
+  } 
+
+  countdown();
+
   const shuffle = () => {
     let list = $('ul');
     let count = $('ul li').length;
@@ -38,29 +36,22 @@ const startGame = () => {
     $('li', list).eq(j).appendTo(list);
 } console.log(`this is the list ${list}`);
   }
-  // console.log("bye");
   shuffle();
   let matches = 0;
   let timer = 2;
 
-    // game
-    // console.log("hi");
     let showCards = [];
     let clickedCard;
   $(document.body).on("click", "li.card", function(event) {
 
     // flips the card over
     $(event.target).toggleClass("face-down show");
-
     clickedCard = $(event.target).attr("class");
     showCards.push(clickedCard);
-    console.log(`card one ${clickedCard}`);
-    console.log(showCards);
-
+    // compare once we click 2 cards
     if (showCards.length === 2) {
       console.log("okay");
       if (showCards[0] === showCards[1]) {
-
         console.log("yay");
         $(".show").toggleClass("show blank");
         showCards = [];
@@ -68,113 +59,26 @@ const startGame = () => {
         $(".show").toggleClass("show face-down");
         showCards = [];
       }
-
     }
-
   });
-
-      // console.log($(event.target).attr("class"));
-      
-      // console.log(`card one ${cardOne}`);
-      // console.log(`card two ${cardTwo}`);
-      // if (cardOne === cardTwo) {
-      //   //match
-      //   // hide and play again
-      //   // console.log("yay");
-      //   matches++;
-      // } else {
-      //   // not match
-      //   // flip back over
-      //   console.log("boo");
-      // }
-      timer--;
-   if (timer <= 0) {
-    // lose
-  } else if (matches.length === 8) {
-    // win
-  } 
 
 }
 
-startGame();
 
 
+ // reset button
 $(document.body).on("click", "#reset-button", function(event) {
   startGame();
 });
 
+// Round 1 countdown
 
-
-
-
-
-
-
-
-
-
-
-
-//  for (let i = 0; i < cards.length; i++) {
-//   cards[i].addEventListener("click", displayCard);
-// }
-
-
-
-
-/*
-//START GAME FUNCTION, LOOPS THROUGH ARRAY OF CARDS AND ADDS THEM TO WINDOW
-let deck = document.querySelector(".deck");
-function startGame() {
-  let shuffleCards = shuffle(cards);
-  for(let i = 0; i < shuffledCards.length; i++){
-    [].forEach.call(shuffledCards, function(item) {
-      deck.appendChild(item);
-    });
-  }
-}
+let seconds;
+let timerEl;
+let timeout;
  
-// ON RESET, THE STARTGAME() SHOULD BE CALLED AGAIN
-// FUNCTION TO HAVE INTRODUCTION OF GAME POP UP, THIS SHOULD ALSO WORK FOR RESET
-//randomize cards
-function shuffle(ourDeck) {
-  let currentIndex = ourDeck.length, temporaryValue, randomIndex;
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = ourDeck(currentIndex);
-    ourDeck(currentIndex) = ourDeck(randomIndex);
-    ourDeck(randomIndex) = temporaryValue;
-  }
-  return array;
-}
-//Check for matches
-function cardOpen() {
-  openedCards.push(this);
-  let len = openedCards.length;
-  if(len === 2){
-    moveCounter();
-    if(openedCards[0].type === openedCards[1].type) {
-      matched();
-    } else  {
-      unMatched();
-    }
-  };
-  // CHECKING CARD MATCHES
-  function matched() {
-    openedCards[0].classList.add("match");
-    openedCards[1].classList.add("match");
-    openedCards[0].classList.remove("show", "open");
-    openedCards[1].classList.remove("show", "open");
-    openedCards = [];
-   }
-  function noMatch() {
-    openedCards[0].classList.add("nomatch");
-    openedCards[1].classList.add("nomatch");
-  }
-}
-*/
 
+  startGame();
 
 
 });

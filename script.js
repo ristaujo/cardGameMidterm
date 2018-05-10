@@ -20,29 +20,99 @@ $(document).ready(function(){
 //   this.classList.toggle("disable");
 // }
 
- $(document.body).on("click", "li.card", function(event) {
-   console.log(event.target);
-   $(event.target)
-    .toggleClass("face-down")
-    .toggleClass("show")
- })
+//  $(document.body).on("click", "li.card", function(event) {
+//    console.log(event.target);
+//    $(event.target)
+//     .toggleClass("face-down")
+//  })
 
- $(document.body).on("click", "#reset-button", function(event) {
-  startGame();
-})
+// Shuffles cards
 
 const startGame = () => {
+  console.log("game started");
   const shuffle = () => {
-    console.log("hi");
     let list = $('ul');
     let count = $('ul li').length;
   for (let i = 1; i < count; i++) {
     let j = Math.floor(Math.random() * count);
     $('li', list).eq(j).appendTo(list);
-} console.log(list);
+} console.log(`this is the list ${list}`);
   }
+  // console.log("bye");
   shuffle();
+  let matches = 0;
+  let timer = 2;
+
+    // game
+    // console.log("hi");
+    let showCards = [];
+    let clickedCard;
+  $(document.body).on("click", "li.card", function(event) {
+
+    // flips the card over
+    $(event.target).toggleClass("face-down show");
+
+    clickedCard = $(event.target).attr("class");
+    showCards.push(clickedCard);
+    console.log(`card one ${clickedCard}`);
+    console.log(showCards);
+
+    if (showCards.length === 2) {
+      console.log("okay");
+      if (showCards[0] === showCards[1]) {
+
+        console.log("yay");
+        $(".show").toggleClass("show blank");
+        showCards = [];
+      } else {
+        $(".show").toggleClass("show face-down");
+        showCards = [];
+      }
+
+    }
+
+  });
+
+      // console.log($(event.target).attr("class"));
+      
+      // console.log(`card one ${cardOne}`);
+      // console.log(`card two ${cardTwo}`);
+      // if (cardOne === cardTwo) {
+      //   //match
+      //   // hide and play again
+      //   // console.log("yay");
+      //   matches++;
+      // } else {
+      //   // not match
+      //   // flip back over
+      //   console.log("boo");
+      // }
+      timer--;
+   if (timer <= 0) {
+    // lose
+  } else if (matches.length === 8) {
+    // win
+  } 
+
 }
+
+startGame();
+
+
+$(document.body).on("click", "#reset-button", function(event) {
+  startGame();
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 //  for (let i = 0; i < cards.length; i++) {

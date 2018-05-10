@@ -38,6 +38,8 @@ body {
 
 }
 
+
+
 .bg-overlay {
   width: 100%;
   height: 100%;
@@ -76,7 +78,9 @@ ul {
   align-items: center;
   margin: 0;
   padding: 0;
-
+  position: relative;
+  z-index: 1;
+  perspective: 1000;
 }
 
 li {
@@ -86,21 +90,57 @@ li {
   height: 100px;
   margin: 3px;
   border: 2px solid black;
+  transform-style: preserve-3d;
+  transition: 0.6s;
 }
 
-#card5 {
-  /* display: none; */
+li:active {
+  transform: rotateY(180deg);
 }
 
-.face-down {
+.disease-one {
+  background-image: url(diseases/BubonicPlague_edit.jpg);
+}
+
+.disease-two {
+  background-image: url(diseases/ebola_edit.jpg);
+
+}
+
+.disease-three {
+  background-image: url(diseases/influenza_edit.jpg);
+}
+
+.disease-four {
+  background-image: url(diseases/Malaria_edit.jpg);
+}
+
+.disease-five {
+  background-image: url(diseases/Polio_edit.jpg);
+}
+
+.disease-six {
+  background-image: url(diseases/YellowFever_edit.jpg);
+}
+
+.disease-seven {
+  background-image: url(diseases/Smallpox_edit.jpg);
+}
+
+.disease-eight {
+  background-image: url(diseases/Tuberculosis_edit.jpg);
+}
+
+ .face-down {
   background-color: white;
   background-image: url(biohazard.jpg);
   background-size: 75px 75px;
   background-repeat: no-repeat;
   background-position-y: center;
-  /* background-image: url(ApocBackgroundDESKTOP.jpg); */
-  /* background-color: yellow; */
-}
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+} 
 
 footer {
   box-sizing: border-box;
@@ -115,15 +155,25 @@ footer {
 }
 
 #lives {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 30px;
-  border: 2px solid black;
+  border: 2px solid #E3A348;
+  color: #E3A348;
+  font-family: 'Digital-7 Mono', monospace;
 }
 
 #timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 30px;
-  border: 2px solid black;
+  border: 2px solid #E3A348;
+  color: #E3A348;
+  font-family: 'Digital-7 Mono', monospace;
 }
 
 #reset-button {
@@ -131,6 +181,6 @@ footer {
   height: 50px;
   border: 2px solid black;
   border-radius: 500px;
-  background-color: red;
+  background-color: #9B5959;
 }
 

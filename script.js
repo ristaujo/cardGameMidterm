@@ -73,7 +73,7 @@ const startGame = () => {
   $(document.body).on("click", "li.card", function(event) {
 
     // flips the card over
-    $(event.target).toggleClass("face-down show").delay(500);
+    $(event.target).toggleClass("face-down show open").delay(500);
     clickedCard = $(event.target).attr("class");
     showCards.push(clickedCard);
     // compare once we click 2 cards
@@ -82,7 +82,7 @@ const startGame = () => {
       
       if (showCards[0] === showCards[1]) {
         console.log("match");
-        $(".show").toggleClass("show blank");
+        $(".show").toggleClass("show blank open");
         showCards = [];
         matches++;
         // if (matches === 2) {

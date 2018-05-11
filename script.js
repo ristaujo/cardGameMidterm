@@ -6,9 +6,13 @@ $(document).ready(function(){
 
 
 const startGame = () => {
-
+  let seconds;
+  let timerEl;
+  let timeout;
   console.log("game started");
-
+  $(".blank").toggleClass("blank face-down");
+  $(".show").toggleClass("show face-down");
+  $('#timer').html("5");
   function countdown() {
     seconds = document.getElementById('timer').innerHTML;
     seconds = parseInt(seconds, 10);
@@ -32,6 +36,7 @@ const startGame = () => {
   countdown();
 
   const shuffle = () => {
+    console.log("shuffle");
     let list = $('ul');
     let count = $('ul li').length;
   for (let i = 1; i < count; i++) {
@@ -73,9 +78,7 @@ const startGame = () => {
 
 // Round 1 countdown
 
-let seconds;
-let timerEl;
-let timeout;
+
  
 
 ////////////////////START OF BRAND NEW GAME

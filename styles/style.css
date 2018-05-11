@@ -179,6 +179,8 @@ li {
 
 #popup {
   display: flex;
+  box-shadow: 2px 5px 10px 2px rgba(51, 27, 27, 0.98);
+  border-radius: 5px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -194,28 +196,13 @@ li {
   padding: 50px;
   color: #E3A348;
   text-shadow: 0 0 5px black;
-
-}
-
-#start-button {
-  /* width: 100px; */
-  /* height: 50px; */
-  margin: 0 auto;
-  /* background-color: #70807E; */
-  background-color: rgb(110,110,80);
-  border: none;
-  padding: 10px 50px;
-  color: #E3A348;
-  text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px;
-
-  font-family: 'Special Elite', sans-serif;
-  font-size: 30px;
 }
 
 footer {
   box-sizing: border-box;
   width: 100%;
   height: 100px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -241,26 +228,194 @@ footer {
   align-items: center;
   padding: 10px 20px;
   color: #E3A348;
-  /* text-shadow: 0 0 10px black; */
-  /* text-shadow: 0 0 2px black, 0 0 5px #E3A348; */
-  text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000 ;
-  
-  
+  text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000;
   font-family: 'Digital-7 Mono', monospace;
 }
 
 #reset-button {
-  width: 50px;
-  height: 50px;
-  /* border: 2px solid black; */
-  border: none;
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  top: 0;
+  cursor: pointer;
+  border: 1px solid #B21522;
   border-radius: 500px;
   background-color: rgb(155,89,89);
-  box-shadow: 0 7px grey;
-  font-size: 16px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-position: 0 100%;
+  background-size: 158px 142px;
+  background-clip: border-box;
+  box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 3px 6px 0 rgba(0,0,0,0.2) inset;
+  transition: all 40ms cubic-bezier(0.6, -0.28, 0.735, 0.04);
+  transform: rotateX(35deg)  translateY(15px) translateZ(40px) ;
+  font-size: 20px;
   color: #E3A348;
   font-family: 'Digital-7 Mono', monospace;
   text-shadow: 0px  -1px 0px rgba(0,0,0,.5);
-  /* text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000 ; */
 }
 
+#reset-button:hover {
+  background: radial-gradient(closest-side, rgba(255,255,255,0.28) 0, rgba(0,0,0,0) 100%), #a80008;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-size: 158px 142px;
+  box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 2px 6px 0 rgba(0,0,0,0.2) inset;
+  transition: all 0 cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#reset-button:active {
+  cursor: default;
+  top: 15px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #c60009;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-size: 158px 142px;
+  box-shadow: 1px 5px 8px 4px rgba(0,0,0,0.4) , 0 7px 0 0 #000000 , 1px 2px 1px 1px rgba(0,0,0,0.6) , 3px 1px 5px 0 rgba(255,255,255,0.2) inset, 3px -6px 5px 0 rgba(255,255,255,0.2) inset, -1px 1px 4px 0 rgba(0,0,0,0.2) inset;
+  /* transition: all 40ms cubic-bezier(0.42, 0, 0.58, 1); */
+}
+
+button:focus {outline:0;}
+
+
+#start-button {
+  font-family: 'Special Elite', sans-serif;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 50px;
+  color: #E3A348;
+  text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px;
+  border: 1px solid rgb(88, 88, 59);
+  background: radial-gradient(closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), rgb(110,110,80);
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-position: 0 100%;
+  background-size: 158px 142px;
+  background-clip: border-box;
+  box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2), 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -1px 2px 4px 0 rgba(0,0,0,0.2) inset;
+  transition: all 40ms cubic-bezier(0.6, -0.28, 0.735, 0.04);
+  transform: rotateX(35deg)  translateY(15px) translateZ(40px) ;
+  font-size: 20px;
+  color: #E3A348;
+  font-family: 'Digital-7 Mono', monospace;
+  text-shadow: 0px  -1px 0px rgba(0,0,0,.5);
+}
+
+#start-button:active {
+  cursor: default;
+  top: 15px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), rgb(110,110,80);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-size: 158px 142px;
+  box-shadow: 1px 5px 8px 4px rgba(0,0,0,0.4) , 0 7px 0 0 #000000 , 1px 2px 1px 1px rgba(0,0,0,0.6) , 3px 1px 5px 0 rgba(255,255,255,0.2) inset, 3px -6px 5px 0 rgba(255,255,255,0.2) inset, -1px 1px 4px 0 rgba(0,0,0,0.2) inset;
+  transition: all 40ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+
+
+/* TABLET STYLES BEGIN HERE */
+@media only screen and (min-width: 768px) {
+ 
+  header {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  h1 {
+    margin-left: 15px;
+  }
+
+  footer {
+    background-color: none;
+    width: 0;
+    height: 0;
+  }
+
+  #lives {
+    position: absolute;
+    top: 20px;
+    right: 250px;
+  }
+
+  #timer {
+    position: absolute;
+    top: 20px;
+    left: 250px;
+  }
+
+  #reset-button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+
+  main {
+    display: flex;
+    margin: 0 auto;
+    width: 500px;
+    bottom: 15px;
+  }
+  
+  ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  li {
+    width: 100px;
+    height: 125px;
+    margin-top: 10px;
+  }
+
+  .face-down {
+    background-color: white;
+    background-image: url(biohazard.jpg);
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    /* backface-visibility: hidden; */
+  }  
+}
+
+
+/* DESKTOP STYLES START HERE */
+@media only screen and (min-width: 1200px) {
+  
+
+  #lives {
+    position: absolute;
+    top: 20px;
+    right: 200px;
+  }
+
+  #timer {
+    position: absolute;
+    top: 20px;
+    left: 300px;
+  }
+
+  main {
+    display: flex;
+    margin: 0 auto;
+    width: 500px;
+    bottom: 32px;
+  }
+
+}

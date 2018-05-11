@@ -92,7 +92,8 @@ li {
   width: 75px;
   height: 100px;
   margin: 3px;
-  border: 2px solid black;
+  box-shadow: 2px 5px 15px black;
+  border-radius: 5px;
   /* box-shadow: 2px 5px 20px grey; */
   position: relative;
   perspective: 500px;
@@ -256,5 +257,10 @@ footer {
   border-radius: 500px;
   background-color: rgb(155,89,89);
   box-shadow: 0 7px grey;
+  font-size: 16px;
+  color: #E3A348;
+  font-family: 'Digital-7 Mono', monospace;
+  text-shadow: 0px  -1px 0px rgba(0,0,0,.5);
+  /* text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000 ; */
 }
 

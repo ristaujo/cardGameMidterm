@@ -6,33 +6,53 @@ $(document).ready(function(){
 
 
 const startGame = () => {
-  let seconds;
-  let timerEl;
-  let timeout;
+
   console.log("game started");
   $(".blank").toggleClass("blank face-down");
   $(".show").toggleClass("show face-down");
-  $('#timer').html("5");
-  function countdown() {
-    seconds = document.getElementById('timer').innerHTML;
-    seconds = parseInt(seconds, 10);
- 
-  // If seconds equal 1, display sad message  
-    if (seconds == 1) {
-      timerEl = document.getElementById('timer');
-      timerEl.innerHTML = "Oh no!";
-      console.log("fail");
-      $("#popup").html(`<p>You could not save the world.</p>`)
-      .show();
-      return;
-    }
-  // targeting timer div, seconds decrement
-    seconds--;
-    timerEl = document.getElementById('timer');
-    timerEl.innerHTML = seconds;
-    timeout = setTimeout(countdown, 1000);
-  } 
 
+  function countdown() {
+    // let 
+    // while ()
+  //   let seconds;
+  //   let timerEl;
+  //   let timeout;
+  //   seconds = document.getElementById('timer').innerHTML;
+
+  //   // converts string "seconds" to a number in base 10
+  //   seconds = parseInt(seconds, 10);
+ 
+  // // If seconds equal 1, display sad message 
+  //   if (seconds > 1) {
+  //   // targeting timer div, seconds decrement
+  //   seconds--;
+  //   console.log(seconds);
+  //   timerEl = document.getElementById('timer');
+  //   timerEl.innerHTML = seconds;
+  //   // this line??? sets the interval of ___ to 1 sec
+  //   timeout = setTimeout(countdown, 1000);
+  //   }
+  
+  //   else if (seconds === 1) {
+  //     timerEl = document.getElementById('timer');
+  //     timerEl.innerHTML = "Oh no!";
+  //     console.log("fail");
+  //     $("#popup").html(`<p>You could not save the world.</p>`)
+  //     .show();
+  //     // clearTimeout(timeout);
+  //     // return;
+  //   } else if (seconds < 1) {
+  //     $('#timer').html(`5`);
+  //   }
+  // // targeting timer div, seconds decrement
+  //   seconds--;
+  //   console.log(seconds);
+  //   timerEl = document.getElementById('timer');
+  //   timerEl.innerHTML = seconds;
+  //   // this line??? sets the interval of ___ to 1 sec
+  //    timeout = setTimeout(countdown, 1000);
+  } 
+  
   countdown();
 
   const shuffle = () => {
@@ -72,18 +92,11 @@ const startGame = () => {
 
 } // end of start game
 
-
-
-
-
-// Round 1 countdown
-
-
  
 
 ////////////////////START OF BRAND NEW GAME
 const brandNewGame = () => {
-
+  $('#timer').html(`${5}`);
   $("#popup").html(`<p>You ARE patient zero.</p><button type="button" id="start-button">Plague</button>`)
 $(document.body).on("click", "#start-button", function(event) 
 {

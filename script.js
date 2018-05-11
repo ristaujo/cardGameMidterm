@@ -12,45 +12,25 @@ const startGame = () => {
   $(".show").toggleClass("show face-down");
 
   function countdown() {
-    // let 
-    // while ()
-  //   let seconds;
-  //   let timerEl;
-  //   let timeout;
-  //   seconds = document.getElementById('timer').innerHTML;
 
-  //   // converts string "seconds" to a number in base 10
-  //   seconds = parseInt(seconds, 10);
- 
-  // // If seconds equal 1, display sad message 
-  //   if (seconds > 1) {
-  //   // targeting timer div, seconds decrement
-  //   seconds--;
-  //   console.log(seconds);
-  //   timerEl = document.getElementById('timer');
-  //   timerEl.innerHTML = seconds;
-  //   // this line??? sets the interval of ___ to 1 sec
-  //   timeout = setTimeout(countdown, 1000);
-  //   }
-  
-  //   else if (seconds === 1) {
-  //     timerEl = document.getElementById('timer');
-  //     timerEl.innerHTML = "Oh no!";
-  //     console.log("fail");
-  //     $("#popup").html(`<p>You could not save the world.</p>`)
-  //     .show();
-  //     // clearTimeout(timeout);
-  //     // return;
-  //   } else if (seconds < 1) {
-  //     $('#timer').html(`5`);
-  //   }
-  // // targeting timer div, seconds decrement
-  //   seconds--;
-  //   console.log(seconds);
-  //   timerEl = document.getElementById('timer');
-  //   timerEl.innerHTML = seconds;
-  //   // this line??? sets the interval of ___ to 1 sec
-  //    timeout = setTimeout(countdown, 1000);
+    let seconds = 90;
+    let ourTimer = setInterval( () => {
+      startTime()
+    }, 1000);
+
+    const startTime = () => {
+      if (seconds == 0) {
+        clearInterval(ourTimer);
+        console.log("timer done");
+        // $("#timer").text("Oh no!");
+        // $("#popup").html(`<p>You could not save the world.</p>`)
+        // .show();
+      } else {
+        seconds--;
+        console.log(seconds);
+        $("#timer").html(seconds);
+      }
+    }
   } 
   
   countdown();
@@ -70,24 +50,42 @@ const startGame = () => {
 
     let showCards = [];
     let clickedCard;
+    let matchCards = 0;
+  // begin matching cards
   $(document.body).on("click", "li.card", function(event) {
 
     // flips the card over
-    $(event.target).toggleClass("face-down show");
+    $(event.target).toggleClass("face-down show").delay(500);
     clickedCard = $(event.target).attr("class");
     showCards.push(clickedCard);
     // compare once we click 2 cards
     if (showCards.length === 2) {
-      console.log("okay");
       if (showCards[0] === showCards[1]) {
-        console.log("yay");
+        console.log("match");
         $(".show").toggleClass("show blank");
         showCards = [];
+        matchCards++;
+        if (matchCards === 8) {
+          console.log("you won!");
+          $("#timer").hide();
+          $("#timer").text("Yay!");
+          $("#popup").html(`<p>You saved the world.</p>`)
+          .show();
+          // clearInterval(ourTimer);
+        } else if ($("#timer").text === 0) {
+          $("#timer").text("Oh no!");
+          $("#popup").html(`<p>You could not save the world.</p>`)
+          .show();
+
+        }
+        console.log(matchCards);
       } else {
         $(".show").toggleClass("show face-down");
         showCards = [];
       }
-    }
+    } // end of compare 2 cards
+
+
   });
 
 } // end of start game
@@ -96,7 +94,7 @@ const startGame = () => {
 
 ////////////////////START OF BRAND NEW GAME
 const brandNewGame = () => {
-  $('#timer').html(`${5}`);
+  $('#timer').html(`90`);
   $("#popup").html(`<p>You ARE patient zero.</p><button type="button" id="start-button">Plague</button>`)
 $(document.body).on("click", "#start-button", function(event) 
 {

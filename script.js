@@ -80,7 +80,9 @@ const startGame = () => {
     if (showCards.length === 2) {
       console.log(showCards);
       
-      if (showCards[0] === showCards[1]) {
+
+      const compare = () => {
+        if (showCards[0] === showCards[1]) {
         console.log("match");
         $(".show").toggleClass("show blank");
         showCards = [];
@@ -97,6 +99,9 @@ const startGame = () => {
         $(".show").toggleClass("show face-down");
         showCards = [];
       }
+    }
+    setTimeout(compare, 2000);
+
     } // end of compare 2 cards
 
 

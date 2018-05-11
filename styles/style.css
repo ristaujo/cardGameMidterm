@@ -177,6 +177,11 @@ li {
   border: none;
 }
 
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 #popup {
   display: flex;
   box-shadow: 2px 5px 10px 2px rgba(51, 27, 27, 0.98);
@@ -196,6 +201,8 @@ li {
   padding: 50px;
   color: #E3A348;
   text-shadow: 0 0 5px black;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
 }
 
 footer {
@@ -366,8 +373,9 @@ button:focus {outline:0;}
     display: flex;
     margin: 0 auto;
     width: 500px;
-    bottom: 15px;
+    bottom: 32px;
   }
+
   
   ul {
     justify-content: center;

@@ -450,4 +450,8 @@ button:focus {outline:0;}
   footer {
     margin-top: -10px;
   }
+
+  #card-deck {
+    padding-top: 10%;
+  }
 }

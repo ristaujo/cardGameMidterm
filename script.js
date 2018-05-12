@@ -34,11 +34,11 @@ $(document).ready(function(){
           clearInterval(ourTimer);
           console.log("timer done");
           $("#timer").text("Oh no!");
-          $("#popup").html(`<p>You could not save the world.</p>`)
+          $("#popup").html(`<p>You could not save the world, <br/> press reset to try again...</p>`)
           .show();
         } else if (matches === 2) {
           console.log("you win!")
-          $("#popup").html(`<p>You saved the world.</p>`)
+          $("#popup").html(`<p>You saved the world. <br/> Press reset to play again.</p>`)
           .show();
           clearInterval(ourTimer);
         } else {
@@ -77,53 +77,36 @@ $(document).ready(function(){
     } // end of shuffle function
     shuffle();
     let showCards = [];
-    // let clickedCard;
+    let clickedCard;
       
     // begin matching cards
-    
     $(document.body).on("click", "li.card", function(event) {
 
       // flips the card over on click
       $(event.target).toggleClass("face-down show open");
-      let clickedCard = $(event.target);
-      let cardType = clickedCard[0].attributes.type;
-      // if (showCards.length < 2) {
+      clickedCard = $(event.target).attr("class");
       showCards.push(clickedCard);
-      // console.log(showCards);
-
-      
       // compare once we click 2 cards
-        if (showCards.length === 2) {
-          const compare = () => {
+      if (showCards.length === 2) {
+        // console.log(showCards);
+        
 
-            // if the attribute "disease" of the 2 cards are equal...
-            if (showCards[0].attr("disease") === showCards[1].attr("disease")) {
-
-            console.log("match");
-            for (let i = 1; i >= 0; i--) {
-              $(showCards[i]).addClass("blank");
-            }
-            $(".show").toggleClass("show face-down open");
-            showCards = [];
-            matches++;
-            console.log(matches);
-          } else { // if the attribute "disease" of the 2 cards are NOT equal...
-            console.log("no match");
-            $(".show").toggleClass("show face-down open");
-            showCards = [];
-          }
-        } // end of compare function
+        const compare = () => {
+          if (showCards[0] === showCards[1]) {
+          console.log("match");
+          $(".show").toggleClass("show blank open");
+          showCards = [];
+          matches++;
+          console.log(matches);
+        } else {
+          $(".show").toggleClass("show face-down open");
+          showCards = [];
+        }
+    } // end of compare function
 
       // after 3 seconds, run compare function
       setTimeout(compare, 3000);
-      
-      } // end of if (showCards.length === 2) 
-
-    // } else {
-    //   console.log("too long");
-    //   $(".show").toggleClass("show face-down open");
-      
-    // }
+      } // end of compare 2 cards
     }); // end of click on card functionality
 
   } // end of startGame function
@@ -133,7 +116,9 @@ $(document).ready(function(){
     $(".blank").toggleClass("blank face-down")
     $(".show").toggleClass("show face-down")
     let matches = 0;
-    $("#popup").html(`<p>You ARE patient zero.</p><button type="button" id="start-button">Plague</button>`)
+    $("#popup").html(`<p>You ARE patient zero. <br/>
+    You have 2 minutes to match all 8 diseases...the fate of humankind is in your hands. <br/> Are you ready?
+    </p><button type="button" id="start-button">Plague</button>`)
     .show();
     $(document.body).on("click", "#start-button", function(event) {
       $("#popup").hide();

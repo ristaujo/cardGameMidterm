@@ -77,36 +77,53 @@ $(document).ready(function(){
     } // end of shuffle function
     shuffle();
     let showCards = [];
-    let clickedCard;
+    // let clickedCard;
       
     // begin matching cards
+    
     $(document.body).on("click", "li.card", function(event) {
 
       // flips the card over on click
       $(event.target).toggleClass("face-down show open");
-      clickedCard = $(event.target).attr("class");
+      let clickedCard = $(event.target);
+      let cardType = clickedCard[0].attributes.type;
+      // if (showCards.length < 2) {
       showCards.push(clickedCard);
-      // compare once we click 2 cards
-      if (showCards.length === 2) {
-        // console.log(showCards);
-        
+      // console.log(showCards);
 
-        const compare = () => {
-          if (showCards[0] === showCards[1]) {
-          console.log("match");
-          $(".show").toggleClass("show blank open");
-          showCards = [];
-          matches++;
-          console.log(matches);
-        } else {
-          $(".show").toggleClass("show face-down open");
-          showCards = [];
-        }
-    } // end of compare function
+      
+      // compare once we click 2 cards
+        if (showCards.length === 2) {
+          const compare = () => {
+
+            // if the attribute "disease" of the 2 cards are equal...
+            if (showCards[0].attr("disease") === showCards[1].attr("disease")) {
+
+            console.log("match");
+            for (let i = 1; i >= 0; i--) {
+              $(showCards[i]).addClass("blank");
+            }
+            $(".show").toggleClass("show face-down open");
+            showCards = [];
+            matches++;
+            console.log(matches);
+          } else { // if the attribute "disease" of the 2 cards are NOT equal...
+            console.log("no match");
+            $(".show").toggleClass("show face-down open");
+            showCards = [];
+          }
+        } // end of compare function
 
       // after 3 seconds, run compare function
       setTimeout(compare, 3000);
-      } // end of compare 2 cards
+      
+      } // end of if (showCards.length === 2) 
+
+    // } else {
+    //   console.log("too long");
+    //   $(".show").toggleClass("show face-down open");
+      
+    // }
     }); // end of click on card functionality
 
   } // end of startGame function

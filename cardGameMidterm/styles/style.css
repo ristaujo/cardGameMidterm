@@ -19,14 +19,6 @@ html {
   height: 100%;
 }
 
-p {
-  margin: 0;
-  margin-bottom: 10px;
-  font-family: Apocalypse;
-  size: 12px;
-  text-shadow: 3px  3px 20px black;
-}
-
 body {
   box-sizing: border-box;
   display: flex;
@@ -66,7 +58,7 @@ h1 {
   color: #E3A348 ;
   font-family: 'Special Elite', sans-serif;
   text-shadow: 3px  3px black;
-  font-size: 40px;
+  font-size: 60px;
   margin: 0;
   margin-top: 15px;
 }
@@ -92,6 +84,8 @@ ul {
   width: 100%;
   max-width: 375px;
   object-fit: contain;
+  /* object-fit: fill; */
+  /* position: relative; */
 }
 
 li {
@@ -108,6 +102,36 @@ li {
   cursor: pointer;
  
 }
+
+/*.card:hover .face-down, .card-flip .face-down {
+  transform: rotateX(180deg);
+}
+
+.card:hover .disease-one, .card.flip {
+  transform: rotateX(0deg);
+  background-image: url(diseases/BubonicPlague_edit.jpg);
+  background-position: center;
+  background-size: 100px;
+  background-repeat: no-repeat;
+}
+
+.card .disease-one {
+  transform: rotateX(-180deg);
+}
+
+.card .face-down, .card .disease-one {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in;
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: white;
+  background-image: url(biohazard.jpg);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+} */
 
 .disease-one {
   background-image: url(diseases/BubonicPlague_edit.jpg);
@@ -178,7 +202,7 @@ li {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  margin-top: 5px;
+  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -186,7 +210,7 @@ li {
   height: 100%;
   background-color: rgba(155,89,89, 0.98);
   z-index: 10;
-  padding: 25px;
+  padding: 50px;
   color: #E3A348;
   text-align: center;
   text-shadow: 0 0 5px black;
@@ -204,7 +228,19 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  margin-top: 6px;
   background-color: rgba(60,60,50,0.9);
+}
+
+#lives {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  /* border: 2px solid #E3A348; */
+  color: #E3A348;
+  font-family: 'Digital-7 Mono', monospace;
+  text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000 ;
 }
 
 #timer {
@@ -212,17 +248,15 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  margin-top: 40px;
   color: #E3A348;
   text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000;
   font-family: 'Digital-7 Mono', monospace;
-  font-size: 50px;
 }
 
 #reset-button {
   width: 80px;
   height: 80px;
-  margin-top: 50px;
+  margin-top: 1px;
   top: 0;
   cursor: pointer;
   border: 1px solid #B21522;
@@ -275,7 +309,6 @@ button:focus {outline:0;}
   cursor: pointer;
   border-radius: 5px;
   padding: 10px 50px;
-  margin-top: 5px;
   color: #E3A348;
   text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px;
   border: 1px solid rgb(88, 88, 59);
@@ -357,72 +390,60 @@ button:focus {outline:0;}
     margin-left: 15px;
   }
 
-  #popup {
-    margin-top: 26px;
-    width: 500px;
-    height: 550px;
-  }
-
-  p {
-    margin: 0;
-    margin-bottom: 20px;
-    font-family: Apocalypse;
-    size: 14px;
-    text-shadow: 3px  3px 20px black;
-  }
-
-  #start-button {
-    margin-top: 10px;
-  }
-  
   footer {
     background-color: none;
     width: 0;
     height: 0;
   }
 
-  #reset-button {
+  #lives {
     position: absolute;
-    top: -45px;
-    right: 25px;
-    width: 80px;
-    height: 80px;
-    font-size: 20px;
+    top: 20px;
+    right: 250px;
   }
 
   #timer {
     position: absolute;
-    top: -10px;
-    right: 120px;
+    top: 20px;
+    left: 250px;
+  }
+
+  #reset-button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
   }
 
   main {
     display: flex;
     margin: 0 auto;
     width: 500px;
-    height: 550px;
-    bottom: 15px;
+    bottom: 32px;
   }
 
+  
   ul {
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto;
   }
   
   li {
-    width: 75px;
-    height: 100px;
-    margin-top: 5px;
+    width: 100px;
+    height: 125px;
+    margin-top: 10px;
   }
 
   .face-down {
     background-color: white;
     background-image: url(biohazard.jpg);
-    background-size: 75px 75px;
+    background-size: 100px 100px;
     background-repeat: no-repeat;
     background-position-y: center;
     /* backface-visibility: hidden; */
@@ -442,8 +463,8 @@ button:focus {outline:0;}
 
   #timer {
     position: absolute;
-    top: -27px;
-    right: 120px;
+    top: 20px;
+    left: 300px;
   }
 
   main {
@@ -451,10 +472,12 @@ button:focus {outline:0;}
     margin: 0 auto;
     width: 500px;
     bottom: 5px;
-    margin-top: 3.1%;
   }
 
-  footer {
-    margin-top: -10px;
+  .card {
+    
+    justify-content: space-between;
+
   }
+
 }

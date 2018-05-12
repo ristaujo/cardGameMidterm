@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   const startGame = () => {
     // shows the timer and sets the length of game time in seconds
-    let seconds = 300;
+    let seconds = 120;
     // $('#timer').html(`${seconds}`);
 
     let matches = 0;
@@ -36,7 +36,7 @@ $(document).ready(function(){
           $("#timer").text("Oh no!");
           $("#popup").html(`<p>You could not save the world, <br/> press reset to try again...</p>`)
           .show();
-        } else if (matches === 2) {
+        } else if (matches === 8) {
           console.log("you win!")
           $("#popup").html(`<p>You saved the world. <br/> Press reset to play again.</p>`)
           .show();

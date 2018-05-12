@@ -5,22 +5,17 @@ $(document).ready(function(){
   const startGame = () => {
     // shows the timer and sets the length of game time in seconds
     let seconds = 120;
-    // $('#timer').html(`${seconds}`);
-
     let matches = 0;
     
-    console.log("game started");
-
+    //Function for timer
     function countdown() {
 
       // this displays the initial time in minutes and seconds
       let justSeconds = seconds%60;
-      // console.log(time);
       if ((justSeconds) < 10 && seconds >= 0) {
         justSeconds = "0" + justSeconds;
       }
       $("#timer").text(`${Math.floor(seconds/60)}:${justSeconds}`);
-      // let seconds = $("#timer").text();
       // END INITIAL TIME DISPLAY
 
       let ourTimer = setInterval( () => {
@@ -28,26 +23,21 @@ $(document).ready(function(){
       }, 1000);
 
       const startTime = () => {
-        // console.log(matches);
         
         if (seconds == 0 && matches != 2) {
           clearInterval(ourTimer);
-          console.log("timer done");
           $("#timer").text("Oh no!");
           $("#popup").html(`<p>You could not save the world, <br/> press reset to try again...</p>`)
           .show();
         } else if (matches === 8) {
-          console.log("you win!")
           $("#popup").html(`<p>You saved the world. <br/> Press reset to play again.</p>`)
           .show();
           clearInterval(ourTimer);
         } else {
           seconds--;
-          // console.log($("#timer").text());
-
           // this part displays the time in minutes and seconds
           let time = seconds%60;
-          // console.log(time);
+
           if ((time) < 10 && seconds >= 0) {
             time = "0" + time;
           }
@@ -56,10 +46,6 @@ $(document).ready(function(){
       } 
       // Reset Button
     $(document.body).on("click", "#reset-button", function(event) {
-      // clearInterval(ourTimer);
-      // $("#popup").hide();
-      // startGame();
-      // brandNewGame();
         location.reload(true);
       });
     } // end of countdown function
@@ -67,9 +53,9 @@ $(document).ready(function(){
     countdown();
 
     const shuffle = () => {
-      console.log("shuffle");
       let list = $('ul');
       let count = $('ul li').length;
+
       for (let i = 1; i < count; i++) {
       let j = Math.floor(Math.random() * count);
       $('li', list).eq(j).appendTo(list);
@@ -88,17 +74,13 @@ $(document).ready(function(){
       showCards.push(clickedCard);
       // compare once we click 2 cards
       if (showCards.length === 2) {
-        // console.log(showCards);
         
-
         const compare = () => {
           if (showCards[0] === showCards[1]) {
-          console.log("match");
           $(".show").toggleClass("show blank open");
           showCards = [];
           matches++;
-          console.log(matches);
-        } else {
+        } else {  
           $(".show").toggleClass("show face-down open");
           showCards = [];
         }
@@ -111,7 +93,7 @@ $(document).ready(function(){
 
   } // end of startGame function
 
-
+  //Generates start game popup and initializes game
   const brandNewGame = () => {
     $(".blank").toggleClass("blank face-down")
     $(".show").toggleClass("show face-down")

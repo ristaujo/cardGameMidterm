@@ -253,7 +253,7 @@ footer {
 
 #reset-button:active {
   cursor: default;
-  top: 15px;
+  top: -25px;
   background: radial-gradient(closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #c60009;
   background-repeat: no-repeat;
   background-position: 0 100%;

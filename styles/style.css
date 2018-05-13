@@ -208,7 +208,8 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  margin-top: 40px;
+  margin-top: 58px;
+  margin-left: -15px;
   color: #E3A348;
   text-shadow: -1px -1px 2px rgb(80,80,80), 1px -1px 2px  rgb(80,80,80), 0 0 8px #E3A348 , 0 0 10px #E3A348  , 0 0 15px #E3A348 , 0 0 16px #000000;
   font-family: 'Digital-7 Mono', monospace;
@@ -377,7 +378,7 @@ button:focus {outline:0;}
 
   #reset-button {
     position: absolute;
-    top: -45px;
+    top: -30px;
     right: 25px;
     width: 80px;
     height: 80px;
@@ -386,7 +387,7 @@ button:focus {outline:0;}
 
   #timer {
     position: absolute;
-    top: -10px;
+    top: -35px;
     right: 120px;
   }
 
@@ -426,7 +427,6 @@ button:focus {outline:0;}
 /* DESKTOP STYLES START HERE */
 @media only screen and (min-width: 1200px) {
   
-
   #lives {
     position: absolute;
     top: 20px;
@@ -435,7 +435,7 @@ button:focus {outline:0;}
 
   #timer {
     position: absolute;
-    top: -27px;
+    top: -36px;
     right: 120px;
   }
 

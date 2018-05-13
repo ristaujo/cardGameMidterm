@@ -2,6 +2,7 @@
 
 $(document).ready(function(){ 
 
+
   const startGame = () => {
     // shows the timer and sets the length of game time in seconds
     let seconds = 120;

@@ -59,7 +59,7 @@ $(document).ready(function(){
 
       for (let i = 1; i < count; i++) {
       let j = Math.floor(Math.random() * count);
-      $('li', list).eq(j).appendTo(list);
+      $('li', list).eq(j).appendTo(list); //item at random number's index is appended to 'list'
       } 
     } // end of shuffle function
     shuffle();
